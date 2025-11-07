@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import time
 import pandas as pd
 from selenium import webdriver
@@ -11,6 +12,9 @@ from datetime import datetime
 import re
 from notion_client import Client
 from webdriver_manager.chrome import ChromeDriverManager  
+
+# .env 파일 자동 로드 (존재할 경우만)
+load_dotenv()
 
 class WishketToNotion:
     def __init__(self, notion_token, database_id, start_id=1, end_id=100):
@@ -522,10 +526,10 @@ class WishketToNotion:
             if data.get('deadline_iso'):
                 properties["마감일"] = {"date": {"start": data['deadline_iso']}}
 
-            # 시작예정일 (Multi-select로 변경)
+            # 시작예정일 (Rich text)
             if data.get('start_date'):
                 properties["시작예정일"] = {
-                    "multi_select": [{"name": data['start_date'][:100]}]
+                    "rich_text": [{"text": {"content": data['start_date'][:2000]}}]
                 }
             
             # 카테고리 (Multi-select, 쉼표 제거)

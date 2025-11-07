@@ -736,7 +736,7 @@ if __name__ == "__main__":
 
     # 설정
     START_ID = 140006
-    END_ID = 150000 
+    END_ID = 160000 
     
     print("\n🎯 위시켓 → 노션 자동화 (Full Version)")
     print(f"📊 크롤링: {START_ID} ~ {END_ID} ({END_ID-START_ID+1}개)")

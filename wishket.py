@@ -720,14 +720,9 @@ class WishketToNotion:
 # ========================================
 
 if __name__ == "__main__":
-    NOTION
     
     
-    
-    
-    
-    
-    _TOKEN = os.environ.get("NOTION_TOKEN")
+    NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
     DATABASE_ID = os.environ.get("NOTION_DATABASE_ID")
 
     if not NOTION_TOKEN or not DATABASE_ID:
